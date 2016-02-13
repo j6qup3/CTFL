@@ -2,6 +2,7 @@
 CTFL -- CRUD Template For Laravel
 
 Usage:
+
 1. Model: 
 File app/Models/CRUDTable.php, no need to modify, just move it into your models folder.
 PS. Depend on MySQL DB, this template only works on the table which has primary-key field (also auto-increment is better).
