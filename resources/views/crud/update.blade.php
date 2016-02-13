@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="{{ asset('css/lib/bootstrap/min.css') }}">
-<link rel="stylesheet" href="{{ asset('css/lib/bootstrap/theme.css') }}">
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 <form method="POST" action="{{route('update.api', [$table, $data->id])}}">

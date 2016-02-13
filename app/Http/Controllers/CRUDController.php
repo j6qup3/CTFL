@@ -18,6 +18,9 @@ class CRUDController extends Controller
   //改關聯資料表並更新關聯
   public function changeTable($table)
   {
+    //自定義黑名單
+    if ($table == 'prices')
+      return true;
     $temp = new CRUDTable();
     $temp->setTable($table);
     $this->fields = $temp->getConnection()->getSchemaBuilder()->getColumnListing($table);
@@ -31,7 +34,7 @@ class CRUDController extends Controller
       $this->fieldnames[$field] = $field;
       $this->fieldfixeds[$field] = false;
     }
-    //自定義區塊
+    //自定義欄位區塊
     if ($table == 'users')
     {
       $this->fieldshows['password'] = false;
