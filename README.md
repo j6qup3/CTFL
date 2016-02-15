@@ -45,7 +45,6 @@ CTFL is open-sourced software licensed under the [MIT license](http://opensource
 At last, forgive my poor english ability.
 
 
-中文待補
 
 # CTFL
 CTFL -- 為 Laravel 設計的 CRUD 模板
