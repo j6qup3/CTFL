@@ -1,5 +1,4 @@
-# CTFL
-CTFL -- CRUD Template For Laravel
+# CTFL - CRUD Template For Laravel
 
 ## Usage:
 
@@ -46,8 +45,7 @@ At last, forgive my poor english ability.
 
 
 
-# CTFL
-CTFL -- 為 Laravel 設計的 CRUD 模板
+# CTFL - 為 Laravel 設計的 CRUD 模板
 
 ## 用法：
 
@@ -67,7 +65,7 @@ CTFL -- 為 Laravel 設計的 CRUD 模板
 
     - 本模板基於 Bootstrap 和 jQuery，你可以修改檔案開頭的 CSS link 的 href 和 JS script 的  src，否則它們在沒網路的情況下不會呈現正常效果。
 
-    - You can modify the the togglelist of table.你可以修改資料表的 togglelist。
+    - 你可以修改資料表的 togglelist。
 
 
 - Controller:
@@ -76,15 +74,15 @@ CTFL -- 為 Laravel 設計的 CRUD 模板
 
     - 你可以修改一些設置，像是 "某欄位是否顯示"(fieldshows，預設 true)、"某欄位名稱"(fieldnames，預設為資料表名)、"某欄位是不是被固定無法更新"(fieldfixeds，預設 false)
 
-    - 錯誤處理部份目前一律以拋出 404 Not Found 例外處理。
+    - error 和 exception 處理部份目前一律以拋出 NotFoundHttpException (404) 處理。
 
 - Route:
 
     - 檔案 `app/Http/route_crud.php`，只要移進你的 `app/Http` 資料夾然後在 `app/Http/route.php` 加上 `include('route_crud.php')` (或是複製 `route_crud.php` 內的程式碼貼到 `app/Http/route.php` 裡面)
 
-    - 你應該實作一個權限驗證的 middleware (更改 `app/Http/Middleware/Authenticate.php` 中的函式 handle 比較好)。
+    - 你應該實作一個驗證權限的 middleware (最好更改 `app/Http/Middleware/Authenticate.php` 中的函式 handle)。
 
-    - 預設上，`{ HOST }/crud/{name of table}` 可以進入關於該資料表的 CTFL 介面。順帶一提，你也可以更改這個設定。
+    - 預設上，網址 `{ HOST }/crud/{name of table}` 可以進入關於該資料表的 CTFL 介面。順帶一提，你也可以更改這個設定。
 
 
 CTFL 是開源軟體，授權於 [MIT license](http://opensource.org/licenses/MIT)
