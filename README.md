@@ -17,7 +17,7 @@ CTFL -- CRUD Template For Laravel
 
     - File `resources/views/crud/update.blade.php`, also, just move it into your `resources/views` folder and add `@include('crud.update')` in blade file.
 
-    - Depend on Bootstrap and jQuery, you can modify the href of CSS link and the src of script of JS in the begin of file, or they won't work without Internet connection.
+    - Depend on Bootstrap and jQuery, you can modify the href of CSS link and the src of JS script in the begin of file, or they won't work without Internet connection.
 
     - You can modify the the togglelist of table.
 
@@ -32,7 +32,7 @@ CTFL -- CRUD Template For Laravel
 
 - Route:
 
-    - File `app/Http/route_crud.php`, just move it into `app/Http folder` and add `include('route_crud.php')` in your `app/Http/route.php` (or copy the codes in `route_crud.php` then paste on `app/Http/route.php`)
+    - File `app/Http/route_crud.php`, just move it into `app/Http` folder and add `include('route_crud.php')` in your `app/Http/route.php` (or copy the codes in `route_crud.php` then paste on `app/Http/route.php`)
 
     - You should implement a auth middleware (modifying function handle in `app/Http/Middleware/Authenticate.php` is better).
 
@@ -66,29 +66,26 @@ CTFL -- 為 Laravel 設計的 CRUD 模板
 
     - 檔案 `resources/views/crud/update.blade.php`，同樣也只要移進你的 `resources/views` 資料夾並在 blade 檔加上 `@include('crud.crud')` 就行了。
 
-    - Depend on Bootstrap and jQuery, you can modify the href of CSS link and the src of script of JS in the begin of file, or they won't work without Internet connection.
+    - 本模板基於 Bootstrap 和 jQuery，你可以修改檔案開頭的 CSS link 的 href 和 JS script 的  src，否則它們在沒網路的情況下不會呈現正常效果。
 
-    - You can modify the the togglelist of table.
+    - You can modify the the togglelist of table.你可以修改資料表的 togglelist。
 
 
 - Controller:
 
-    - File `app/Http/Controllers/CRUDController.php`, just move it into your `app/Http/Controllers` folder.
+    - 檔案 `app/Http/Controllers/CRUDController.php`，只要移進你的 `app/Http/Controllers` 資料夾。
 
-    - You can modify some settings such as "those table that are abandoned to access in CTFL" (none as default), "decide whether fields will show in CTFL" (true as default), "names of each field that will be show in CTFL" (origin field name as default), "decide whether field can be modify when update in CTFL" (false as default)
+    - 你可以修改一些設置，像是 "某欄位是否顯示"(fieldshows，預設 true)、"某欄位名稱"(fieldnames，預設為資料表名)、"某欄位是不是被固定無法更新"(fieldfixeds，預設 false)
 
-    - Throwing NotFoundHttpException (404) to handle exceptions and errors.
+    - 錯誤處理部份目前一律以拋出 404 Not Found 例外處理。
 
 - Route:
 
-    - File `app/Http/route_crud.php`, just move it into app/Http folder and add include('route_crud.php') in your app/Http/route.php (or copy the codes in route_crud.php then paste on app/Http/route.php)
+    - 檔案 `app/Http/route_crud.php`，只要移進你的 `app/Http` 資料夾然後在 `app/Http/route.php` 加上 `include('route_crud.php')` (或是複製 `route_crud.php` 內的程式碼貼到 `app/Http/route.php` 裡面)
 
-    - You should implement a auth middleware (modifying function handle in app/Http/Middleware/Authenticate.php is better).
+    - 你應該實作一個權限驗證的 middleware (更改 `app/Http/Middleware/Authenticate.php` 中的函式 handle 比較好)。
 
-    - As default, { HOST }/crud/{name of table} can enter the CTFL with that table. By the way, you can modify it too.
-
-
-CTFL is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+    - 預設上，`{ HOST }/crud/{name of table}` 可以進入關於該資料表的 CTFL 介面。順帶一提，你也可以更改這個設定。
 
 
-At last, forgive my poor english ability.
+CTFL 是開源軟體，授權於 [MIT license](http://opensource.org/licenses/MIT)
