@@ -1,42 +1,42 @@
 # CTFL
 CTFL -- CRUD Template For Laravel
 
-Usage:
+## Usage:
 
 
-Model: 
+- Model: 
 
-File app/Models/CRUDTable.php, no need to modify, just move it into your models folder.
+    - File `app/Models/CRUDTable.php`, no need to modify, just move it into your `models` folder.
 
-PS. Depend on MySQL DB, this template only works on the table which has primary-key field (also auto-increment is better).
-
-
-View:
-
-File resources/views/crud/crud.blade.php, just move it into your views folder and add @include('crud.crud') in blade file.
-
-File resources/views/crud/update.blade.php, also, just move it into your resources/views folder and add @include('crud.update') in blade file.
-
-PS. Depend on Bootstrap and jQuery, you can modify the href of CSS link and the src of script of JS in the begin of file, or they won't work without Internet connection.
-
-PS2. You can modify the the togglelist of table.
+    - Depend on MySQL DB, this template only works on the table which has primary-key field (also auto-increment is better).
 
 
-Controller:
+- View:
 
-File app/Http/Controllers/CRUDController.php, just move it into your app/Http/Controllers folder.
+    - File `resources/views/crud/crud.blade.php`, just move it into your views folder and add `@include('crud.crud')` in blade file.
 
-PS. You can modify some settings such as "those table that are abandoned to access in CTFL" (none as default), "decide whether fields will show in CTFL" (true as default), "names of each field that will be show in CTFL" (origin field name as default), "decide whether field can be modify when update in CTFL" (false as default)
+    - File `resources/views/crud/update.blade.php`, also, just move it into your `resources/views` folder and add `@include('crud.update')` in blade file.
 
-PS2. Throwing NotFoundHttpException (404) to handle exceptions and errors.
+    - Depend on Bootstrap and jQuery, you can modify the href of CSS link and the src of script of JS in the begin of file, or they won't work without Internet connection.
 
-Route:
+    - You can modify the the togglelist of table.
 
-File app/Http/route_crud.php, just move it into app/Http folder and add include('route_crud.php') in your app/Http/route.php (or copy the codes in route_crud.php then paste on app/Http/route.php)
 
-PS. You should implement a auth middleware (modifying function handle in app/Http/Middleware/Authenticate.php is better).
+- Controller:
 
-PS2. As default, { HOST }/crud/{name of table} can enter the CTFL with that table. By the way, you can modify it too.
+    - File `app/Http/Controllers/CRUDController.php`, just move it into your `app/Http/Controllers` folder.
+
+    - You can modify some settings such as "those table that are abandoned to access in CTFL" (none as default), "decide whether fields will show in CTFL" (true as default), "names of each field that will be show in CTFL" (origin field name as default), "decide whether field can be modify when update in CTFL" (false as default)
+
+    - Throwing NotFoundHttpException (404) to handle exceptions and errors.
+
+- Route:
+
+    - File `app/Http/route_crud.php`, just move it into `app/Http folder` and add `include('route_crud.php')` in your `app/Http/route.php` (or copy the codes in `route_crud.php` then paste on `app/Http/route.php`)
+
+    - You should implement a auth middleware (modifying function handle in `app/Http/Middleware/Authenticate.php` is better).
+
+    - As default, `{ HOST }/crud/{name of table}` can enter the CTFL with that table. By the way, you can modify it too.
 
 
 CTFL is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
@@ -47,4 +47,48 @@ At last, forgive my poor english ability.
 
 中文待補
 
-用法：
+# CTFL
+CTFL -- 為 Laravel 設計的 CRUD 模板
+
+## 用法：
+
+
+- Model: 
+
+    - 檔案 `app/Models/CRUDTable.php`，不用去更改它，只要移進你的 `models` 資料夾就行了。
+
+    - 本模板基於 MySQL 資料庫，只會對有私有鍵欄位的資料表起作用 (該欄位如果同時是 auto-increment 就更好了)。
+
+
+- View:
+
+    - 檔案 `resources/views/crud/crud.blade.php`，只要移進你的 `resources/views` 資料夾並在 blade 檔加上 `@include('crud.crud')` 就行了。
+
+    - 檔案 `resources/views/crud/update.blade.php`，同樣也只要移進你的 `resources/views` 資料夾並在 blade 檔加上 `@include('crud.crud')` 就行了。
+
+    - Depend on Bootstrap and jQuery, you can modify the href of CSS link and the src of script of JS in the begin of file, or they won't work without Internet connection.
+
+    - You can modify the the togglelist of table.
+
+
+- Controller:
+
+    - File `app/Http/Controllers/CRUDController.php`, just move it into your `app/Http/Controllers` folder.
+
+    - You can modify some settings such as "those table that are abandoned to access in CTFL" (none as default), "decide whether fields will show in CTFL" (true as default), "names of each field that will be show in CTFL" (origin field name as default), "decide whether field can be modify when update in CTFL" (false as default)
+
+    - Throwing NotFoundHttpException (404) to handle exceptions and errors.
+
+- Route:
+
+    - File `app/Http/route_crud.php`, just move it into app/Http folder and add include('route_crud.php') in your app/Http/route.php (or copy the codes in route_crud.php then paste on app/Http/route.php)
+
+    - You should implement a auth middleware (modifying function handle in app/Http/Middleware/Authenticate.php is better).
+
+    - As default, { HOST }/crud/{name of table} can enter the CTFL with that table. By the way, you can modify it too.
+
+
+CTFL is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+
+
+At last, forgive my poor english ability.
