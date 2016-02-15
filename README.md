@@ -18,7 +18,7 @@
 
     - Depend on Bootstrap and jQuery, you can modify the href of CSS link and the src of JS script in the begin of file, or they won't work without Internet connection.
 
-    - You can modify the the togglelist of table.
+    - You can modify the the togglelist of table menu.
 
 
 - Controller:
@@ -65,7 +65,7 @@ At last, forgive my poor english ability.
 
     - 本模板基於 Bootstrap 和 jQuery，你可以修改檔案開頭的 CSS link 的 href 和 JS script 的  src，否則它們在沒網路的情況下不會呈現正常效果。
 
-    - 你可以修改資料表的 togglelist。
+    - 你可以修改資料表目錄的 togglelist。
 
 
 - Controller:
