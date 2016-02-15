@@ -61,7 +61,7 @@ At last, forgive my poor english ability.
 
     - 檔案 `resources/views/crud/crud.blade.php`，只要移進你的 `resources/views` 資料夾並在 blade 檔加上 `@include('crud.crud')` 就行了。
 
-    - 檔案 `resources/views/crud/update.blade.php`，同樣也只要移進你的 `resources/views` 資料夾並在 blade 檔加上 `@include('crud.crud')` 就行了。
+    - 檔案 `resources/views/crud/update.blade.php`，同樣也只要移進你的 `resources/views` 資料夾並在 blade 檔加上 `@include('crud.update')` 就行了。
 
     - 本模板基於 Bootstrap 和 jQuery，你可以修改檔案開頭的 CSS link 的 href 和 JS script 的  src，否則它們在沒網路的情況下不會呈現正常效果。
 
