@@ -56,7 +56,12 @@ class CRUDController extends Controller
 
     if (Input::has('field') && Input::has('exp') && Input::has('value'))
     {
-      $datas = CRUDTable::where(Input::get('field'), Input::get('exp'), Input::get('value'))->get();
+      $datas = new CRUDTable;
+      foreach (Input::get('field') as $key => $field)
+      {
+        $datas = $datas->where($field, Input::get('exp')[$key], Input::get('value')[$key]);
+      }
+      $datas = $datas->get();
       if (isset($datas[0]))
         return View::make('crud/view', [
           'table' => $table,

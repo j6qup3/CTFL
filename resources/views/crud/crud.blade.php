@@ -13,23 +13,29 @@
 </span>
 <h1>資料表 {{$table}}</h1>
 <br>
-<input type="button" class="btn btn-default" value="條件" onClick="$('.slide').slideToggle()">
+<input type="button" class="btn btn-default" value="條件區" onClick="$('.slide').slideToggle()">
 <div class="slide" style="display: none;">
   <form method="GET" action="{{route('crud.view', $table)}}">
     <br>
-    欄位：<select type="text" name="field">
-      @foreach ($fields as $field)
-        @if ($fieldshows[$field])
-          <option value="{{$field}}">{{$fieldnames[$field]}}</option>
-        @endif
-      @endforeach
-    </select>
-    <select type="text" name="exp">
-      <option>></option>
-      <option selected>=</option>
-      <option><</option>
-    </select>
-    值：<input type="text" name="value"><br>
+    <script>
+      var
+    </script>
+    <span class="last">
+      欄位：<select type="text" name="field[]">
+        @foreach ($fields as $field)
+          @if ($fieldshows[$field])
+            <option value="{{$field}}">{{$fieldnames[$field]}}</option>
+          @endif
+        @endforeach
+      </select>
+      <select type="text" name="exp[]">
+        <option>></option>
+        <option selected>=</option>
+        <option><</option>
+      </select>
+      值：<input type="text" name="value[]">
+    </span>
+    <a class="btn btn-default" href="#" onclick="$('.last:last').after('<br>', $('.last:last').clone())">新增條件</a><br>
     <br>
     <input type="submit" class="btn btn-default" value="篩選">
   </form>
