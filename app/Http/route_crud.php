@@ -1,7 +1,7 @@
 <?php
 Route::group(['prefix' => 'crud', 'middleware' => 'auth'], function()
 {
-  //一一設定 (第二個參數陣列內可填 'as' => 'XX')
+  //一一設定 (此為轉網址)
   Route::get('123', function()
   {
     return Redirect::route('crud.view', 'users');

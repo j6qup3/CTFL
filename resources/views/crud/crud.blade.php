@@ -13,13 +13,10 @@
 </span>
 <h1>資料表 {{$table}}</h1>
 <br>
-<input type="button" class="btn btn-default" value="條件區" onClick="$('.slide').slideToggle()">
+<a class="btn btn-default" onClick="$('.slide').slideToggle()">條件區 <span class="caret"></span></a>
 <div class="slide" style="display: none;">
   <form method="GET" action="{{route('crud.view', $table)}}">
     <br>
-    <script>
-      var
-    </script>
     <span class="last">
       欄位：<select type="text" name="field[]">
         @foreach ($fields as $field)
@@ -35,7 +32,7 @@
       </select>
       值：<input type="text" name="value[]">
     </span>
-    <a class="btn btn-default" href="#" onclick="$('.last:last').after('<br>', $('.last:last').clone())">新增條件</a><br>
+    <a class="btn btn-default" href="#" onclick="$('.last:last').after('<br>', $('.last:last').clone()); $('.last:last>input').val('')">新增條件</a><br>
     <br>
     <input type="submit" class="btn btn-default" value="篩選">
   </form>
