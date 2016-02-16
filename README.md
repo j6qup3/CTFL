@@ -1,7 +1,7 @@
 # CTFL - CRUD Template For Laravel
 ## Fixed Version (convenience for developer, but Controll can't be easily to extend)
 
-## Usage:
+### Usage:
 
 
 - Model: 
@@ -40,18 +40,15 @@
     
     - This version is Fixed Version which is convenience for developer because there are only one controller and few routes. But Controller can't be easily extend. You can try the Extend Version if you want extend.
 
-
-CTFL is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
-
-
 At last, forgive my poor english ability.
 
 
+#### CTFL is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
 
 # CTFL - 為 Laravel 設計的 CRUD 模板
 ## Fixed 版本 (對開發者來說較為方便，但 Controller 無法繼承的版本)
 
-## 用法：
+### 用法：
 
 
 - Model: 
