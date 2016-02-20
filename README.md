@@ -46,7 +46,7 @@ At last, forgive my poor english ability.
 #### CTFL is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
 
 # CTFL - 為 Laravel 設計的 CRUD 模板
-## Extend 版本 (Controller 可以被繼承，但對開發者來說較不方便的版本)
+## Extend 分支 (Controller 可以被繼承，但對開發者來說較不方便的版本)
 
 ### 用法：
 
