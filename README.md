@@ -38,7 +38,7 @@
 
     - As default, `{ HOST }/crud/{name of table}` can enter the CTFL with that table. By the way, you can modify it too. However, you can only redirect it to `{ HOST }/crud/{name of table}` if you only modify `route.php`. You can add a function in `CRUDController.php` which calls `function view()` and let customized route link to that function.
     
-    - This version is Extend Version which Controller can't be easily extended. But is unconvenient for developer because there are more than one controllers and many routes. You can try the Fixed Version if you want conventient.
+    - This version is Extend Version which Controller can't be easily extended. But is unconvenient for developer because there are more than one controllers and many routes. You can try the Fixed Version if you want conventient to develop.
 
 At last, forgive my poor english ability.
 
