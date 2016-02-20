@@ -17,6 +17,18 @@
 <div class="slide" style="display: none;">
   <form method="GET" action="{{route('crud.view')}}">
     <br>
+    欄位：<select type="text" name="_field">
+      <option value="{{$primary}}">{{$fieldnames[$primary]}}</option>
+      @foreach ($fields as $field)
+        @if ($fieldshows[$field] && $field != $primary)
+          <option value="{{$field}}">{{$fieldnames[$field]}}</option>
+        @endif
+      @endforeach
+    </select>
+    <select type="text" name="order">
+      <option value="ASC">由低到高</option>
+      <option value="DESC">由高到低</option>
+    </select><br>
     <span class="last">
       欄位：<select type="text" name="field[]">
         @foreach ($fields as $field)
