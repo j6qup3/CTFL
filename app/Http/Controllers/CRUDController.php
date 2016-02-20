@@ -54,13 +54,15 @@ class CRUDController extends Controller
     if(self::changeTable($table))
       throw new NotFoundHttpException;
 
-    if (Input::has('field') && Input::has('exp') && Input::has('value'))
+    if (Input::has('field') && Input::has('exp') && Input::has('value') || Input::has('_field') && Input::has('order'))
     {
       $datas = new CRUDTable;
-      foreach (Input::get('field') as $key => $field)
-      {
-        $datas = $datas->where($field, Input::get('exp')[$key], Input::get('value')[$key]);
-      }
+      if (Input::has('field') && Input::has('exp') && Input::has('value'))
+        foreach (Input::get('field') as $key => $field)
+          if (Input::get('value')[$key]!='')
+            $datas = $datas->where($field, Input::get('exp')[$key], Input::get('value')[$key]);
+      if (Input::has('_field') && Input::has('order'))
+        $datas = $datas->orderBy(Input::get('_field'), Input::get('order'));
       $datas = $datas->get();
       if (isset($datas[0]))
         return View::make('crud/view', [
