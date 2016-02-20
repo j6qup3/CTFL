@@ -15,7 +15,7 @@
 <br>
 <a class="btn btn-default" onClick="$('.slide').slideToggle()">條件區 <span class="caret"></span></a>
 <div class="slide" style="display: none;">
-  <form method="GET" action="{{route('crud.view', $table)}}">
+  <form method="GET" action="{{route('crud.view')}}">
     <br>
     <span class="last">
       欄位：<select type="text" name="field[]">
@@ -40,7 +40,7 @@
 <br><br>
 <table class="table table-bordered table-hover" style="text-align:center;">
   <thead>
-    <form method="POST" action="{{route('crud.api', $table)}}">
+    <form method="POST" action="{{route('crud.api')}}">
       {!! csrf_field() !!}
       <tr>
         <td style="vertical-align:middle;">{{$fieldnames[$primary]}}</td>
@@ -64,11 +64,11 @@
             @endif
           @endforeach
           <td>
-          <a class="btn btn-default form-control" href="{{route('update.view', [$table, $data->getAttributes()[$primary]])}}">修改</a></td>
+          <a class="btn btn-default form-control" href="{{route('update.view', $data->getAttributes()[$primary])}}">修改</a></td>
         </tr>
       @endforeach
     </form>
-    <form method="POST" action="{{route('crud.api', $table)}}">
+    <form method="POST" action="{{route('crud.api')}}">
       {!! csrf_field() !!}
       <tr>
         <td></td>

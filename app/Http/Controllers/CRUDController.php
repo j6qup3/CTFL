@@ -5,8 +5,10 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Auth, Input, View, Redirect, DB;
 class CRUDController extends Controller
 {
+  //資料表
+  protected $table;
   //欄位名稱
-  protected $fields = array();
+  protected $fields = [];
   //primary key 欄位名稱
   protected $primary;
   //欄位是否顯示
@@ -15,45 +17,28 @@ class CRUDController extends Controller
   protected $fieldnames;
   //欄位能不能更新
   protected $fieldfixeds;
-  //改關聯資料表並更新關聯
-  public function changeTable($table)
+  //建構子
+  public function __construct()
   {
-    //自定義黑名單
-    if ($table == 'prices')
-      return true;
     $temp = new CRUDTable();
-    $temp->setTable($table);
-    $this->fields = $temp->getConnection()->getSchemaBuilder()->getColumnListing($table);
+    $temp->setTable($this->table);
+    $this->fields = $temp->getConnection()->getSchemaBuilder()->getColumnListing($this->table);
     //看能不能撈到欄位，不能代表沒此資料表
     if (!$this->fields)
-      return 1;
-    $this->primary = DB::select(DB::raw('SHOW INDEX FROM '.$table.' WHERE Key_name = "PRIMARY"'))[0]->Column_name;
+      throw new NotFoundHttpException;
+    $this->primary = DB::select(DB::raw('SHOW INDEX FROM '.$this->table.' WHERE Key_name = "PRIMARY"'))[0]->Column_name;
     foreach($this->fields as $field)
     {
-      $this->fieldshows[$field] = true;
-      $this->fieldnames[$field] = $field;
-      $this->fieldfixeds[$field] = false;
-    }
-    //自定義欄位區塊
-    if ($table == 'users')
-    {
-      $this->fieldshows['password'] = false;
-
-      $this->fieldnames['account'] = '帳號';
-
-      $this->fieldnames['remember_token'] = '記住我';
-      $this->fieldfixeds['remember_token'] = true;
-    }
-    if ($table == 'comments')
-    {
-      $this->fieldshows['time'] = false;
+      if (!isset($this->fieldshows[$field]))
+        $this->fieldshows[$field] = true;
+      if (!isset($this->fieldnames[$field]))
+        $this->fieldnames[$field] = $field;
+      if (!isset($this->fieldfixeds[$field]))
+        $this->fieldfixeds[$field] = false;
     }
   }
-  public function view($table)
+  public function view()
   {
-    if(self::changeTable($table))
-      throw new NotFoundHttpException;
-
     if (Input::has('field') && Input::has('exp') && Input::has('value'))
     {
       $datas = new CRUDTable;
@@ -64,7 +49,7 @@ class CRUDController extends Controller
       $datas = $datas->get();
       if (isset($datas[0]))
         return View::make('crud/view', [
-          'table' => $table,
+          'table' => $this->table,
           'datas' => $datas,
           'primary' => $this->primary,
           'fields' => $this->fields,
@@ -74,7 +59,7 @@ class CRUDController extends Controller
     }
     $datas = CRUDTable::all();
     return View::make('crud/view', [
-      'table' => $table,
+      'table' => $this->table,
       'datas' => $datas,
       'primary' => $this->primary,
       'fields' => $this->fields,
@@ -82,11 +67,8 @@ class CRUDController extends Controller
       'fieldnames' => $this->fieldnames,
     ]);
   }
-  public function create_delete($table)
+  public function create_delete()
   {
-    if(self::changeTable($table))
-      throw new NotFoundHttpException;
-
     //delete
     if (Input::has('id'))
     {
@@ -114,16 +96,13 @@ class CRUDController extends Controller
     }
     throw new NotFoundHttpException;
   }
-  public function update_view($table, $id)
+  public function update_view($id)
   {
     if ($id)
     {
-      if(self::changeTable($table))
-        throw new NotFoundHttpException;
-
       $data = CRUDTable::find($id);
       return View::make('crud.update_view', [
-        'table' => $table,
+        'table' => $this->table,
         'data' => $data,
         'primary' => $this->primary,
         'fields' => $this->fields,
@@ -134,11 +113,8 @@ class CRUDController extends Controller
     }
     throw new NotFoundHttpException;
   }
-  public function update_api($table, $id)
+  public function update_api($id)
   {
-    if(self::changeTable($table))
-      throw new NotFoundHttpException;
-
     $flag = 1;
     foreach ($this->fields as $field)
       if ($field != $this->primary && $this->fieldshows[$field] && !Input::has($field))
@@ -150,7 +126,7 @@ class CRUDController extends Controller
         if ($field != $this->primary)
           $data->setAttribute($field, Input::get($field));
       $data->save();
-      return Redirect::route('crud.view', $table);
+      return Redirect::route('crud.view', $this->table);
     }
     throw new NotFoundHttpException;
   }
