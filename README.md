@@ -1,5 +1,5 @@
 # CTFL - CRUD Template For Laravel
-## Extend Version (Controll can be easily to extend, but unconvenience for developer)
+## Extend Branch (Controll can be easily to extend, but unconvenience for developer)
 
 ### Usage:
 
@@ -38,7 +38,7 @@
 
     - As default, `{ HOST }/crud/{name of table}` can enter the CTFL with that table. By the way, you can modify it too. However, you can only redirect it to `{ HOST }/crud/{name of table}` if you only modify `route.php`. You can add a function in `CRUDController.php` which calls `function view()` and let customized route link to that function.
     
-    - This version is Extend Version which Controller can't be easily extended. But is unconvenient for developer because there are more than one controllers and many routes. You can try the Fixed Version if you want conventient to develop.
+    - This branch is Extend Branch which Controller can't be easily extended. But is unconvenient for developer because there are more than one controllers and many routes. You can try the Fixed Branch if you want conventient to develop.
 
 At last, forgive my poor english ability.
 
@@ -85,7 +85,7 @@ At last, forgive my poor english ability.
 
     - 預設上，網址 `{ HOST }/crud/{name of table}` 可以進入關於該資料表的 CTFL 介面。順帶一提，你也可以更改這個設定。但是，如果只動 `route.php` 的話，你只能將網址重定向到 `{ HOST }/crud/{name of table}`。你也可以在 `CRUDController.php` 中增加一個呼叫 `function view()` 的函式，然後再將自定義的 route 連結到那個函式。
     
-    - 這個版本是 Extend Version，Controller 可以被繼承 (自由度較高)，但是對開發者來說比較不方便，因為它用多個 Controller 和較多的 route。若你想要方便，可以試試 Fixed Version。
+    - 這個版本是 Extend Branch，Controller 可以被繼承 (自由度較高)，但是對開發者來說比較不方便，因為它用多個 Controller 和較多的 route。若你想要方便，可以試試 Fixed Branch。
 
 
 ####CTFL 是開源軟體，授權於 [MIT license](http://opensource.org/licenses/MIT)
