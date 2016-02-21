@@ -35,8 +35,6 @@
     - File `app/Http/route_crud.php`, just move it into `app/Http` folder and add `include('route_crud.php')` in your `app/Http/route.php` (or copy the codes in `route_crud.php` then paste on `app/Http/route.php`)
 
     - You should implement a auth middleware (modifying function handle in `app/Http/Middleware/Authenticate.php` is better).
-
-    - As default, `{ HOST }/crud/{name of table}` can enter the CTFL with that table. By the way, you can modify it too. However, you can only redirect it to `{ HOST }/crud/{name of table}` if you only modify `route.php`. You can add a function in `CRUDController.php` which calls `function view()` and let customized route link to that function.
     
     - This branch is Extend Branch which Controller can't be easily extended. But is unconvenient for developer because there are more than one controllers and many routes. You can try the Fixed Branch if you want conventient to develop.
 
@@ -82,8 +80,6 @@ At last, forgive my poor english ability.
     - 檔案 `app/Http/route_crud.php`，只要移進你的 `app/Http` 資料夾然後在 `app/Http/route.php` 加上 `include('route_crud.php')` (或是複製 `route_crud.php` 內的程式碼貼到 `app/Http/route.php` 裡面)
 
     - 你應該實作一個驗證權限的 middleware (最好更改 `app/Http/Middleware/Authenticate.php` 中的函式 handle)。
-
-    - 預設上，網址 `{ HOST }/crud/{name of table}` 可以進入關於該資料表的 CTFL 介面。順帶一提，你也可以更改這個設定。但是，如果只動 `route.php` 的話，你只能將網址重定向到 `{ HOST }/crud/{name of table}`。你也可以在 `CRUDController.php` 中增加一個呼叫 `function view()` 的函式，然後再將自定義的 route 連結到那個函式。
     
     - 這個版本是 Extend Branch，Controller 可以被繼承 (自由度較高)，但是對開發者來說比較不方便，因為它用多個 Controller 和較多的 route。若你想要方便，可以試試 Fixed Branch。
 
