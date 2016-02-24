@@ -5,17 +5,15 @@
 <span class="dropdown">
   <a class="btn btn-default" data-toggle="dropdown" href="#">{{$table}} <span class="caret"></span></a>
   <ul class="dropdown-menu">
-    <li><a href="{{route('crud.view', 'datas')}}">datas</a></li>
-    <li><a href="{{route('crud.view', 'users')}}">users</a></li>
-    <li><a href="{{route('crud.view', 'comments')}}">comments</a></li>
-    <li><a href="{{route('crud.view', 'texts')}}">texts</a></li>
+    <li><a href="{{route('datas.crud.view')}}">datas</a></li>
+    <li><a href="{{route('users.crud.view')}}">users</a></li>
   </ul>
 </span>
 <h1>資料表 {{$table}}</h1>
 <br>
 <a class="btn btn-default" onClick="$('.slide').slideToggle()">條件區 <span class="caret"></span></a>
 <div class="slide" style="display: none;">
-  <form method="GET" action="{{route('crud.view')}}">
+  <form method="GET" action="{{route($table.'.crud.view')}}">
     <br>
     欄位：<select type="text" name="_field">
       <option value="{{$primary}}">{{$fieldnames[$primary]}}</option>
@@ -52,7 +50,7 @@
 <br><br>
 <table class="table table-bordered table-hover" style="text-align:center;">
   <thead>
-    <form method="POST" action="{{route('crud.api')}}">
+    <form method="POST" action="{{route($table.'.crud.api')}}">
       {!! csrf_field() !!}
       <tr>
         <td style="vertical-align:middle;">{{$fieldnames[$primary]}}</td>
@@ -76,11 +74,11 @@
             @endif
           @endforeach
           <td>
-          <a class="btn btn-default form-control" href="{{route('update.view', $data->getAttributes()[$primary])}}">修改</a></td>
+          <a class="btn btn-default form-control" href="{{route($table.'.update.view', $data->getAttributes()[$primary])}}">修改</a></td>
         </tr>
       @endforeach
     </form>
-    <form method="POST" action="{{route('crud.api')}}">
+    <form method="POST" action="{{route($table.'.crud.api')}}">
       {!! csrf_field() !!}
       <tr>
         <td></td>

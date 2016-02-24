@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-<form method="POST" action="{{route('update.api', $data->id)}}">
+<form method="POST" action="{{route($table.'.update.api', $data->id)}}">
   <h1>資料表 {{$table}} - 修改</h1>
   <button type="submit" class="btn btn-default">儲存</button>
   <button type="reset" class="btn btn-default">重設</button>
