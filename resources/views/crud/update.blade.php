@@ -6,7 +6,7 @@
   <h1>資料表 {{$table}} - 修改</h1>
   <button type="submit" class="btn btn-default">儲存</button>
   <button type="reset" class="btn btn-default">重設</button>
-  <a href="{{route($table.'crud.view')}}" class="btn btn-default">取消</a>
+  <a href="{{route($table.'.crud.view')}}" class="btn btn-default">取消</a>
   {!! csrf_field() !!}<br>
   <br><br>
   <table class="table table-bordered table-hover" style="text-align:center;">
